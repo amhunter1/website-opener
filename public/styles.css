@@ -104,7 +104,7 @@ body {
     font-weight: 400;
 }
 
-/* Card */
+/* Card  */
 .card {
     background: linear-gradient(180deg, var(--glass), rgba(255,255,255,0.02));
     border: 1px solid var(--glass-border);
@@ -374,4 +374,5 @@ textarea.textarea {
     .settings-panel .select {
         min-width: 160px;
     }
+
 }
