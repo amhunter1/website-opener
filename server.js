@@ -37,7 +37,6 @@ function pickExistingPath(paths) {
         if (fs.existsSync(p)) return p;
       }
     } catch (_) {
-      // ignore
     }
   }
   return null;
@@ -97,7 +96,6 @@ function openWithDefaultBrowserWindows(url) {
       stdio: 'ignore'
     });
     child.on('error', reject);
-    // Detach immediately
     child.unref();
     resolve();
   });
@@ -128,14 +126,12 @@ async function openUrlsWindows({ browser, mode, urls, count }) {
     // Fallback to default browser if specific browser not found
     for (let i = 0; i < times; i++) {
       for (const u of sanitizedUrls) {
-        // Best-effort; ignore individual spawn errors
         try { await openWithDefaultBrowserWindows(u); } catch {}
       }
     }
     return { opened: sanitizedUrls.length * times, windowsLaunched: sanitizedUrls.length * times };
   }
 
-  // Open in batches to create one window per batch with multiple tabs
   const BATCH_SIZE = 15;
   let windowsLaunched = 0;
   for (let t = 0; t < times; t++) {
@@ -170,5 +166,6 @@ app.post('/api/open', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`\n Website Opener running → http://localhost:${PORT}\n`);
 });
+
 
 
