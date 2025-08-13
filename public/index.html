@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Website Opener - Open Multiple URLs</title>
+    <meta name="description" content="Professional tool to open multiple websites in normal or incognito tabs">
+    <meta name="author" content="Melüt (amhunter1)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="title-wrapper">
+                <h1 class="title">Website Opener</h1>
+                <div class="author-badge">
+                    <span class="author-name">melüt</span>
+                    <span class="author-separator">•</span>
+                    <a href="https://github.com/amhunter1" target="_blank" rel="noopener noreferrer" class="github-link">
+                        <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        amhunter1
+                    </a>
+                </div>
+            </div>
+            <p class="subtitle">Open multiple websites in normal or incognito tabs with ease</p>
+        </header>
+
+        <main class="card">
+            <form id="opener-form">
+                <div class="input-group">
+                    <label class="label" for="urls">URLs</label>
+                    <div class="hint">Enter one URL per line (e.g. https://example.com)</div>
+                    <textarea 
+                        id="urls" 
+                        class="textarea" 
+                        rows="8" 
+                        placeholder="https://google.com&#10;https://github.com&#10;https://stackoverflow.com"
+                    ></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="label" for="count">Times to open each URL</label>
+                        <input id="count" class="input" type="number" min="1" max="20" value="1" />
+                    </div>
+                    <div class="col">
+                        <label class="label" for="mode">Mode</label>
+                        <select id="mode" class="select">
+                            <option value="normal">Normal Tab</option>
+                            <option value="incognito">Incognito Tab</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="btn primary">
+                        <span class="btn-text">Open URLs</span>
+                        <span class="btn-loading" style="display: none;">
+                            <svg class="spinner" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/>
+                                <path d="m12,2a10,10 0 0,1 10,10" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <button type="button" id="clear" class="btn">Clear</button>
+                </div>
+            </form>
+
+            <div class="note">
+                Due to browser security limitations, tabs cannot be automatically closed. Incognito mode availability depends on your browser's permissions and settings.
+            </div>
+        </main>
+
+        <footer class="footer">
+            <span>Created by</span>
+            <a href="https://github.com/amhunter1" target="_blank" rel="noopener noreferrer">Melüt</a>
+            <span>•</span>
+            <a href="https://github.com/amhunter1" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
