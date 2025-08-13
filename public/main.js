@@ -75,7 +75,6 @@ function openUrlsClientOnly(urls, times, mode) {
             }
         }
         
-        // Small delay between batches to prevent browser blocking
         if (i < times - 1 && times > 1) {
             setTimeout(() => {}, 50);
         }
@@ -84,7 +83,6 @@ function openUrlsClientOnly(urls, times, mode) {
     return { opened, blocked };
 }
 
-// Button loading state
 function setButtonLoading(loading) {
     const btnText = btnOpen.querySelector('.btn-text');
     const btnLoading = btnOpen.querySelector('.btn-loading');
@@ -178,10 +176,9 @@ form.addEventListener('submit', async (e) => {
         showNotification(`Found ${validUrls.length} valid URLs out of ${lines.length} total.`, 'info');
     }
 
-    // Animate card
     if (card) {
         card.classList.remove('shake');
-        void card.offsetWidth; // Force reflow
+        void card.offsetWidth;
         card.classList.add('shake');
     }
 
@@ -203,7 +200,6 @@ form.addEventListener('submit', async (e) => {
                 showNotification(`Successfully opened ${result.opened} tabs!`, 'success');
             }
         } else {
-            // Try server-side opening first
             try {
                 const response = await fetch('/api/open', {
                     method: 'POST',
@@ -303,16 +299,12 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     createSettingsPanel();
     
-    // Focus on URL input
     if (urlsEl) {
         urlsEl.focus();
     }
-    
-    // Set reasonable limits
     countEl.max = '20';
     countEl.min = '1';
     
@@ -320,4 +312,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         showNotification('Website Opener ready! Enter your URLs and click "Open URLs"', 'info');
     }, 1000);
+
 });
